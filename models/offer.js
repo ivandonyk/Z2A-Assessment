@@ -15,6 +15,7 @@ const Offer = db.define('offer', {
 Offer.associate = function (models) {
   Offer.belongsTo(models.advertiser, { foreignKey: 'advertiserId' })
   Offer.hasMany(models.action)
+  Offer.hasMany(models.connecting)
 }
 
 module.exports = Offer

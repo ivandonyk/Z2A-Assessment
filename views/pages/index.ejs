@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<%- include('../partials/head'); %>
+</head>
+
+<body>
+
+	<header>
+		<%- include('../partials/header'); %>
+	</header>
+
+	<main>
+		<div class="row">
+			<div class="col-md-6">
+				<h2>Actions</h2>
+				<Table class="table">
+					<thead>
+						<tr>
+							<th>GEO</th>
+							<th>Impression</th>
+							<th>Click</th>
+							<th>Conversion</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% actions.forEach(function(action) { %>
+							<tr>
+								<td>
+									<%= action.geo %>
+								</td>
+								<td>
+									<%= action.impression %>
+								</td>
+								<td>
+									<%= action.click %>
+								</td>
+								<td>
+									<%= action.conversion %>
+								</td>
+							</tr>
+							<% }); %>
+					</tbody>
+				</Table>
+			</div>
+
+			<div class="col-md-6">
+				<h1 class="text-info">
+					CTR <%= (ctr?.clickTotal / ctr?.impressionTotal).toFixed(4) %>
+				</h1>
+				<h2>Summarise Offers</h2>
+				<Table class="table">
+					<thead>
+						<tr>
+							<th>Offer</th>
+							<th>Impression Sum</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% summariseOffers.forEach(function(item) { %>
+							<tr>
+								<td>
+									<%= item.offerId %>
+								</td>
+								<td>
+									<%= item.impression %>
+								</td>
+							</tr>
+							<% }); %>
+					</tbody>
+				</Table>
+
+				<h2>Summarise Offers</h2>
+				<Table class="table">
+					<thead>
+						<tr>
+							<th>GEO</th>
+							<th>Total Conversions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% conversionByGeos.forEach(function(item) { %>
+							<tr>
+								<td>
+									<%= item.geo %>
+								</td>
+								<td>
+									<%= item.conversion %>
+								</td>
+							</tr>
+							<% }); %>
+					</tbody>
+				</Table>
+
+			</div>
+		</div>
+	</main>
+
+</body>
+
+</html>

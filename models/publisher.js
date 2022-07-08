@@ -11,6 +11,7 @@ const Publisher = db.define('publisher', {
 
 Publisher.associate = function (models) {
   Publisher.hasMany(models.action)
+  Publisher.hasMany(models.connecting)
 }
 
 module.exports = Publisher

@@ -1,16 +1,12 @@
 'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Actions', {
+    await queryInterface.createTable('Connectings', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
-      },
-      advertiserId: {
-        type: Sequelize.INTEGER,
-        references: { model: 'Advertisers', key: 'id', as: 'advertiserId' },
       },
       offerId: {
         type: Sequelize.INTEGER,
@@ -19,18 +15,6 @@ module.exports = {
       publisherId: {
         type: Sequelize.INTEGER,
         references: { model: 'Publishers', key: 'id', as: 'publisherId' },
-      },
-      geo: {
-        type: Sequelize.STRING
-      },
-      impression: {
-        type: Sequelize.INTEGER
-      },
-      click: {
-        type: Sequelize.INTEGER
-      },
-      conversion: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -43,6 +27,6 @@ module.exports = {
     });
   },
   async down(queryInterface) {
-    await queryInterface.dropTable('Actions');
+    await queryInterface.dropTable('Connectings');
   }
 };
