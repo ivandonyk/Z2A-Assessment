@@ -11,10 +11,10 @@
 		<%- include('../partials/header'); %>
 	</header>
 
-	<main>
+	<main class="container-fluid">
 		<div class="row">
 			<div class="col-md-6">
-				<h2>Actions</h2>
+				<h3 class="text-info">Actions</h3>
 				<Table class="table">
 					<thead>
 						<tr>
@@ -46,10 +46,19 @@
 			</div>
 
 			<div class="col-md-6">
-				<h1 class="text-info">
-					CTR <%= (ctr?.clickTotal / ctr?.impressionTotal).toFixed(4) %>
-				</h1>
-				<h2>Summarise Offers</h2>
+				<div class="row">
+					<div class="col-md-6">
+						<a class="nav-link" href="/create">
+							<button class="btn btn-info">Create Data</button>
+						</a>
+					</div>
+					<div class="col-md-6">
+						<h3 class="text-info text-right">
+							CTR <%= (ctr?.clickTotal / ctr?.impressionTotal).toFixed(4) %>
+						</h3>
+					</div>
+				</div>
+				<h3 class="text-info">Summarise Offers</h3>
 				<Table class="table">
 					<thead>
 						<tr>
@@ -71,7 +80,7 @@
 					</tbody>
 				</Table>
 
-				<h2>Summarise Offers</h2>
+				<h3 class="text-info">Total Conversion Per Geo</h3>
 				<Table class="table">
 					<thead>
 						<tr>
@@ -93,8 +102,95 @@
 					</tbody>
 				</Table>
 
+				<h3 class="text-info">Advertisers</h3>
+				<Table class="table">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Platform</th>
+							<th>Structure Link</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% advertisers.forEach(function(item) { %>
+							<tr>
+								<td>
+									<%= item.title %>
+								</td>
+								<td>
+									<%= item.platform %>
+								</td>
+								<td>
+									<%= item.structureLink %>
+								</td>
+							</tr>
+							<% }); %>
+					</tbody>
+				</Table>
+
+				<h3 class="text-info">Publishers</h3>
+				<Table class="table">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Link</th>
+							<th>User</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% publishers.forEach(function(item) { %>
+							<tr>
+								<td>
+									<%= item.title %>
+								</td>
+								<td>
+									<%= item.link %>
+								</td>
+								<td>
+									<%= item.user %>
+								</td>
+							</tr>
+							<% }); %>
+					</tbody>
+				</Table>
+
+				<h3 class="text-info">Offers</h3>
+				<Table class="table">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Link</th>
+							<th>Payout</th>
+							<th>KPI</th>
+							<th>Currency</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% offers.forEach(function(item) { %>
+							<tr>
+								<td>
+									<%= item.title %>
+								</td>
+								<td>
+									<%= item.link %>
+								</td>
+								<td>
+									<%= item.payout %>
+								</td>
+								<td>
+									<%= item.kpi %>
+								</td>
+								<td>
+									<%= item.currency %>
+								</td>
+							</tr>
+							<% }); %>
+					</tbody>
+				</Table>
+
 			</div>
 		</div>
+
 	</main>
 
 </body>
